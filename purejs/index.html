@@ -1,28 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nitronews</title>
+  <title>Document</title>
 
-  <link rel="stylesheet" href="/styles/index.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&family=Poppins&display=swap" rel="stylesheet" />
+
+      <!-- scripts-->
+      <script src="./js/script.js" defer type="module"></script>
 </head>
 <body>
-    <div id="app">
-      <main>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque assumenda necessitatibus voluptas ea voluptates 
-        delectus facilis, placeat blanditiis dignissimos voluptatum, eos quam consectetur amet ipsa obcaecati expedita impedit totam. Sunt!
-      </main>
-      <aside>
-        <div class="aside-container">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae reprehenderit commodi, consectetur 
-          omnis voluptatem porro excepturi dicta maiores architecto expedita? Exercitationem, nesciunt voluptas. Quo suscipit eum cumque fuga quos. Rem?
-        </div>
-      </aside>
-    </div>
+  <div class="alert-error">
+    Preencha todos os inputs do formulário.
+  </div>
+
+  <div class="page">
+    <header>
+      <h1>Nitronews</h1>
+      <p>O primeiro passo, é preencher esse formulário de inscrição</p>
+    </header>
+    <form id="my-form">
+      <fieldset>
+        <div class="fieldset-wrapper">
+          <legend>Informações do Usuário</legend>
+          
+          <div class="input-wrapper">
+            <label for="name">Nome</label>
+            <input type="text" name="" id="name" />
+          </div>
+
+          <div class="input-wrapper">
+            <label for="email">Email</label>
+            <input 
+              type="email"
+              name=""
+              id="email"
+              oninvalid="this.setCustomValidity('Email inválido')"
+              oninput="this.setCustomValidity('')"
+            />
+            <span class="email-exists-error"></span>
+          </div>
+
+          <div class="input-wrapper">
+            <label style="display: flex; align-items: center;" for="password">
+              Senha
+              <span style="font-size: 9px;">(Mínimo de 8 caracteres; Mínimo de 1 caractere minusculo; Mínimo de 1 caractere maiúsculo; Mínimo de um numeral)</span>
+            </label>
+            <input
+              type="text"
+              name=""
+              id="password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+              oninvalid="
+              this.setCustomValidity('Mínimo de 8 caracteres; Mínimo de 1 caractere minusculo; Mínimo de 1 caractere maiúsculo; Mínimo de um numeral;')"
+              oninput="this.setCustomValidity('')"
+            />
+          </div>
+
+          <div class="input-wrapper">
+            <label for="password-confirm">Confirmar Senha</label>
+            <input type="text" name="" id="password-confirm" />
+          </div>
+
+        <footer class="form-buttons">
+          <button id="-my-form" type="submit" class="button">Salvar evento</button>
+        </footer>
+      </fieldset>
+    </form>
+  </div>
 </body>
 </html>
